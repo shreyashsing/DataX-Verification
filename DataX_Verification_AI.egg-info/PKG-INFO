@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: DataX-Verification-AI
+Version: 1.0.0
+Summary: AI model for dataset verification
+Author: Your Name
+License: MIT
+Requires-Dist: pandas==2.2.2
+Requires-Dist: numpy==1.26.4
+Requires-Dist: spacy==3.7.4
+Requires-Dist: transformers==4.44.2
+Requires-Dist: ydata-profiling==4.8.3
+Requires-Dist: great-expectations==0.18.12
+Requires-Dist: fairlearn==0.10.0
+Requires-Dist: torch==2.4.1
+Requires-Dist: scikit-learn==1.5.1
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: pytest==8.3.2
+Dynamic: author
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
