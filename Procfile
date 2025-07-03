@@ -1,1 +1,1 @@
-web: python server.py 
+web: python install_models.py && python server.py 

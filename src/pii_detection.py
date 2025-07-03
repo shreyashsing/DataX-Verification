@@ -1,4 +1,4 @@
-import spacy
+git import spacy
 import re
 import pandas as pd
 from .utils import convert_to_native

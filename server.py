@@ -5,6 +5,33 @@ import pandas as pd
 import json
 import hashlib
 import io
+import subprocess
+import sys
+
+# Download spaCy model if not available
+def ensure_spacy_model():
+    """Ensure spaCy model is available before starting the server."""
+    try:
+        import spacy
+        nlp = spacy.load("en_core_web_sm")
+        print("✅ spaCy model ready")
+        return True
+    except OSError:
+        print("📦 Downloading spaCy model...")
+        try:
+            subprocess.check_call([
+                sys.executable, "-m", "spacy", "download", "en_core_web_sm"
+            ])
+            print("✅ spaCy model downloaded")
+            return True
+        except Exception as e:
+            print(f"❌ Failed to download spaCy model: {e}")
+            return False
+
+# Ensure model is available before importing modules that use it
+if not ensure_spacy_model():
+    print("⚠️ Warning: spaCy model not available. Some features may not work.")
+
 from src.verifier import Verifier
 from src.utils import compute_hash
 
