@@ -9,10 +9,26 @@ from src.verifier import Verifier
 from src.utils import compute_hash
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+
+# Configure CORS for production
+if os.environ.get('NODE_ENV') == 'production':
+    # In production, only allow your Vercel domain
+    allowed_origins = [
+        "https://*.vercel.app",
+        "https://your-domain.com"  # Replace with your actual domain
+    ]
+    CORS(app, origins=allowed_origins)
+else:
+    # In development, allow all origins
+    CORS(app)
 
 # Initialize the verifier
 verifier = Verifier()
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint for deployment platforms"""
+    return jsonify({'status': 'healthy', 'service': 'DataX AI Verification'}), 200
 
 @app.route('/api/verify', methods=['POST'])
 def verify_dataset():
