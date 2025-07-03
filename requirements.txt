@@ -5,4 +5,5 @@ category_encoders>=2.3.0
 matplotlib>=3.4.0
 seaborn>=0.11.0
 Flask>=2.0.0
-Flask-CORS>=3.0.0 
+Flask-CORS>=3.0.0
+great-expectations>=0.15.0 

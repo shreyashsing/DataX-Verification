@@ -3,7 +3,7 @@ builder = "nixpacks"
 
 [deploy]
 startCommand = "python server.py"
-healthcheckPath = "/api/verify"
+healthcheckPath = "/health"
 healthcheckTimeout = 300
 
 [env]
